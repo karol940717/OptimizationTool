@@ -48,5 +48,43 @@ namespace OptimalizationTool
             Process.Start("dfrgui.exe");
             button5.BackColor = Color.LightGreen;
         }
+
+        private void button6_Click(object sender, EventArgs e)
+
+        {
+            var startInfo = new ProcessStartInfo("cmd.exe")
+            {
+                Verb = "runas",
+                Arguments = "/k chkdsk & sfc /scannow",
+                UseShellExecute = true
+            };
+
+            try
+            {
+                Process.Start(startInfo);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Błąd: " + ex.Message);
+            }
+            button6.BackColor = Color.LightGreen;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Process.Start("ncpa.cpl");
+            button7.BackColor = Color.LightGreen;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Process.Start("taskmgr.exe");
+            button8.BackColor = Color.LightGreen;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
